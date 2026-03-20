@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --brand-500: #22c55e;
+  --brand-600: #16a34a;
+  --surface-50: #fafafa;
+  --surface-900: #171717;
+  --surface-950: #0a0a0a;
+}
+
+@layer base {
+  body {
+    @apply bg-surface-950 text-white antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg
+           bg-brand-500 text-white font-semibold text-sm
+           hover:bg-brand-600 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-surface-950
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg
+           bg-surface-800 text-white font-semibold text-sm border border-surface-700
+           hover:bg-surface-700 hover:border-surface-600 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-surface-500 focus:ring-offset-2 focus:ring-offset-surface-950
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg
+           text-surface-400 font-medium text-sm
+           hover:text-white hover:bg-surface-800 transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-surface-900 border border-surface-800 rounded-xl p-6;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 rounded-lg bg-surface-800 border border-surface-700
+           text-white placeholder-surface-500 text-sm
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-surface-300 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-draft {
+    @apply badge bg-surface-800 text-surface-400;
+  }
+
+  .badge-deployed {
+    @apply badge bg-brand-500/10 text-brand-400;
+  }
+
+  .badge-error {
+    @apply badge bg-red-500/10 text-red-400;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent;
+  }
+}
+
+/* ReactFlow overrides */
+.react-flow__background {
+  background-color: var(--surface-950) !important;
+}
+
+.react-flow__minimap {
+  background-color: var(--surface-900) !important;
+  border: 1px solid #262626 !important;
+  border-radius: 8px !important;
+}
+
+.react-flow__controls {
+  background-color: var(--surface-900) !important;
+  border: 1px solid #262626 !important;
+  border-radius: 8px !important;
+}
+
+.react-flow__controls-button {
+  background-color: var(--surface-800) !important;
+  border-color: #404040 !important;
+  color: white !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: var(--surface-700) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
+
+/* Code blocks */
+.code-preview {
+  @apply font-mono text-sm bg-surface-950 border border-surface-800 rounded-lg p-4 overflow-auto;
+  tab-size: 2;
+}
+
+.code-preview .comment {
+  @apply text-surface-500;
+}
+
+.code-preview .keyword {
+  @apply text-purple-400;
+}
+
+.code-preview .string {
+  @apply text-brand-400;
+}
+
+.code-preview .function {
+  @apply text-blue-400;
+}
