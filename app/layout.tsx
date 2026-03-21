@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'No-code builder for Model Context Protocol servers.',
   },
   verification: {
-    google: 'google-site-verification-placeholder',
+    google: 'x2SOtWXlw9tE1I4J22Ov_SllJ1BBlArLSRdblTSNqL8',
   },
 }
 
