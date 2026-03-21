@@ -11,6 +11,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
+    {
+      url: `${baseUrl}/pricing`,
+      lastModified: '2026-03-21',
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/docs`,
+      lastModified: '2026-03-21',
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
   ];
 
   // Blog pages
