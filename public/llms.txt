@@ -1,11 +1,8 @@
 # MCPStudio
-> Visual no-code MCP server builder — create and deploy MCP tools without coding
+> Visual no-code MCP server builder — create and deploy MCP tools without coding.
 
 ## Docs
-- https://mcpstudio-zeta.vercel.app
-
-## API
-- https://mcpstudio-zeta.vercel.app/api
+- https://mcpstudio-zeta.vercel.app: Main product page
 
 ## Contact
 - support@fileforgehq.com
