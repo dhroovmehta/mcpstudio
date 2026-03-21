@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import AnalyticsProvider from '@/components/AnalyticsProvider'
 
 export const metadata: Metadata = {
   title: 'MCPStudio — Build MCP Servers Visually',
@@ -20,6 +23,9 @@ export const metadata: Metadata = {
     title: 'MCPStudio — Build MCP Servers Visually',
     description: 'No-code builder for Model Context Protocol servers.',
   },
+  verification: {
+    google: 'google-site-verification-placeholder',
+  },
 }
 
 export default function RootLayout({
@@ -29,6 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <AnalyticsProvider>
       <head>
         <Script
           id="mcpstudio-schema"
@@ -127,7 +134,10 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
+      </AnalyticsProvider>
     </html>
   )
 }
