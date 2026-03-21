@@ -68,6 +68,58 @@ export default function RootLayout({
             }),
           }}
         />
+        <Script
+          id="mcpstudio-faq"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: 'What is MCPStudio?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'MCPStudio is a visual no-code builder for Model Context Protocol (MCP) servers. Design your MCP tools using drag-and-drop, define API endpoints and tool behaviors, and MCPStudio auto-generates the server code and deploys it to production.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Do I need to know how to code to use MCPStudio?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'No. MCPStudio is designed for non-technical users. Use the visual builder to define tools, parameters, and behavior. MCPStudio generates all the code and handles deployment automatically.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Can I use my own APIs with MCPStudio?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes. MCPStudio supports connecting to external REST APIs, databases, and webhooks. Map your API endpoints to MCP tools with just a few clicks. Pro and Enterprise plans include custom integrations.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Where does MCPStudio deploy my MCP server?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'MCPStudio deploys to Vercel serverless functions instantly. Your MCP server gets a public URL, automatic SSL, and scales automatically. No infrastructure management required.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Can I use MCPStudio tools in Claude Desktop?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes. Any MCP server built with MCPStudio works in Claude Desktop, Cursor, and VS Code with MCP support. MCPStudio generates the configuration file you need to add to your editor.',
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col">
         <Navbar />
