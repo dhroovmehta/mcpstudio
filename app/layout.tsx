@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -28,6 +29,46 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          id="mcpstudio-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'MCPStudio',
+              description: 'Visual no-code MCP server builder — create and deploy MCP tools without coding',
+              url: 'https://mcpstudio-zeta.vercel.app',
+              applicationCategory: 'DeveloperApplication',
+              offers: [
+                {
+                  '@type': 'Offer',
+                  priceCurrency: 'USD',
+                  price: '0',
+                  description: 'Free tier with basic features',
+                },
+                {
+                  '@type': 'Offer',
+                  priceCurrency: 'USD',
+                  price: '29',
+                  description: 'Pro plan',
+                },
+                {
+                  '@type': 'Offer',
+                  priceCurrency: 'USD',
+                  price: '99',
+                  description: 'Enterprise plan',
+                },
+              ],
+              author: {
+                '@type': 'Organization',
+                name: 'MCPStudio Team',
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">

@@ -1,0 +1,18 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+
+Sitemap: https://mcpstudio-zeta.vercel.app/sitemap.xml
