@@ -1,42 +1,101 @@
 # MCPStudio
 
-A visual IDE for building, testing, and deploying Model Context Protocol (MCP) servers. No boilerplate required—focus on logic while MCPStudio handles protocol compliance and deployment.
+Comprehensive developer toolkit for building, testing, and debugging Model Context Protocol (MCP) servers. Accelerate MCP development with visual tools, schema validation, and integrated debugging.
 
-MCPStudio streamlines MCP server development with an intuitive visual editor, built-in testing tools, and one-click deployment. Suitable for beginners exploring MCP and advanced developers building production systems.
+## Features
 
-## Key Features
+- **Visual Server Builder** — Drag-and-drop MCP server scaffolding with pre-built patterns
+- **Schema Validation** — Validate resource, prompt, and tool definitions against MCP spec
+- **Interactive Debugger** — Step through MCP requests with full state inspection
+- **Test Suite Generator** — Auto-generate test cases from your MCP definitions
+- **Type Generation** — Create TypeScript types from your MCP schemas
+- **Client Simulator** — Test your server with a built-in MCP client
+- **Documentation Generator** — Auto-generate API docs from your server definition
+- **Protocol Analyzer** — Inspect MCP traffic and identify performance issues
 
-- **Visual Builder** - Drag-and-drop interface for designing MCP server architecture
-- **Type Safety** - Automatic TypeScript generation and schema validation
-- **Integrated Testing** - Test tools, resource, and prompt implementations in the IDE
-- **Code Generation** - Auto-generate boilerplate MCP protocol code
-- **Deployment Ready** - One-click publishing to Vercel, Docker, or self-hosted environments
-- **Real-time Debugging** - Monitor message flow and troubleshoot implementations
-- **Template Library** - Pre-built patterns for common server types
-- **Protocol Validation** - Automatic validation of MCP compliance
+## Quick Start
 
-## Getting Started
+```bash
+npm install -D mcpstudio
+npx mcpstudio init
+```
 
-Try it now: **[MCPStudio - Visual MCP IDE](https://mcpstudio.vercel.app)**
+```typescript
+// With MCPStudio type generation
+import { MyServerSchema } from 'mcpstudio/generated/schema';
+import { createMCPServer } from 'mcpstudio';
 
-## Tech Stack
+const server = createMCPServer({
+  name: 'my-data-server',
+  resources: [
+    {
+      uri: 'database://users/{id}',
+      name: 'User',
+      description: 'Get a user by ID',
+      handler: async (uri) => {
+        const id = uri.split('/').pop();
+        return { 
+          text: JSON.stringify({ id, name: 'User ' + id })
+        };
+      }
+    }
+  ],
+  tools: [
+    {
+      name: 'search_users',
+      description: 'Search users by name',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          query: { type: 'string' }
+        }
+      }
+    }
+  ]
+});
+```
 
-- Built with **Next.js** for responsive, real-time IDE experience
-- Deployed on **Vercel** for instant availability
-- Generates standards-compliant MCP implementations
+## Development Tools
 
-## About MCP
+- **Local Server Runner** — Run your MCP server with hot reload and error reporting
+- **Request Inspector** — See exactly what clients are sending and how your server responds
+- **Performance Profiler** — Measure response times and identify bottlenecks
+- **Schema Linter** — Validate your MCP definitions against best practices
+- **Mock Client** — Test your server without building a real client
 
-MCPStudio simplifies development of servers for the [Model Context Protocol](https://modelcontextprotocol.io) - the open standard for AI model integration.
+## Testing & Quality
+
+- **Unit Test Generator** — Create test files from your MCP schema
+- **Integration Tests** — Test real client-server interactions
+- **Regression Testing** — Ensure changes don't break existing functionality
+- **Coverage Reports** — See which resources and tools are tested
+- **Snapshot Testing** — Catch unintended changes in responses
+
+## Use Cases
+
+- **Rapid Prototyping** — Build MCP servers in minutes instead of hours
+- **Team Collaboration** — Share MCP definitions as versioned schemas
+- **API Documentation** — Auto-generate docs that stay in sync with code
+- **Quality Assurance** — Automated testing ensures MCP compliance
+- **Performance Optimization** — Profile and optimize your server
+- **Training & Onboarding** — Visual builders help new developers learn MCP
+
+## Documentation
+
+- [Full Documentation](https://mcpstudio-docs.vercel.app)
+- [MCP Spec Reference](https://mcpstudio-docs.vercel.app/mcp-spec)
+- [API Guide](https://mcpstudio-docs.vercel.app/api)
+- [Best Practices](https://mcpstudio-docs.vercel.app/best-practices)
+
+## Live Demo
+
+Try MCPStudio: [https://mcpstudio-demo.vercel.app](https://mcpstudio-demo.vercel.app)
+
+## Community
+
+- **GitHub Issues** — [Report bugs and request features](https://github.com/zeros-projects/mcpstudio/issues)
+- **Discussions** — [Ask questions and share ideas](https://github.com/zeros-projects/mcpstudio/discussions)
 
 ## License
 
-MIT
-
-## Contributing
-
-Help improve MCPStudio! Report bugs, suggest features, and contribute code.
-
----
-
-**Start building:** [mcpstudio.vercel.app](https://mcpstudio.vercel.app)
+MIT © 2024 MCPStudio
